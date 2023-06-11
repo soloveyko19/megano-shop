@@ -1,0 +1,15 @@
+# IDE
+.idea
+
+# Virtual enviroment
+venv
+
+# Databases
+*.sqlite3
+
+# user`s files
+upload
+
+# else
+.DS_Store
+
