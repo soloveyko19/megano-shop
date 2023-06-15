@@ -1,5 +1,7 @@
 FROM python:3.10
 
+ENV PYTHOBUNBUFFERED=1
+
 WORKDIR /app
 
 COPY requirements.txt requirements.txt
@@ -11,4 +13,4 @@ RUN pip install -r requirements.txt
 
 COPY megano megano
 
-RUN python3 megano/manage.py migrate
+RUN python megano/manage.py migrate

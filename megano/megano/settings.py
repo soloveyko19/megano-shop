@@ -27,10 +27,20 @@ SECRET_KEY = "django-insecure-2!ce1km!1lh^g+s!4^$r^n0+8vzm_1l9t1tloz*94c!^43a)qm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "0.0.0.0"
+]
 
 INTERNAL_IPS = ["127.0.0.1"]
 
+if DEBUG:
+    import socket
+    hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+    INTERNAL_IPS.append("10.0.2.2")
+    INTERNAL_IPS.extend(
+        [ip[:ip.rfind(".")] + ".1" for ip in ips]
+    )
 
 # Application definition
 
